@@ -38,11 +38,16 @@ function Todo() {
     putItems(newItems);
   };
 
+  const handleAdding = text => {
+    putItems([...items, { key: getKey(), text, done: false }]);
+  };
+
   return (
     <div className="panel">
       <div className="panel-heading">
         ITSS ToDoアプリ
       </div>
+      <Input addWork={handleAdding} />
       {items.map(item => (
         // <label className="panel-block">
         //     <input type="checkbox" />

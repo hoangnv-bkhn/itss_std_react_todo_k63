@@ -15,7 +15,7 @@ function Input( { onAdd } ) {
   return (
     <div className="panel-block">
       <input
-        class="input"
+        className="input"
         type="text"
         placeholder="Todoを入力してください"
         value={text}

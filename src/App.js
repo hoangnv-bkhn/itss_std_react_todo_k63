@@ -6,6 +6,7 @@ import './styles/main.css';
 /* コンポーネント */
 import Todo from './components/Todo';
 import Login from "./components/Login";
+import Upload from "./components/Upload";
 
 import { auth, storeUserInfo, updateUser } from "./lib/firebase";
 
@@ -35,13 +36,13 @@ function App() {
   const HeaderContent = () => {
     if (user) {
       return (
-        <div class="navbar-end">
-          <div class="navbar-item">
-            
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <Upload userImage={user.image} onSelectedImage={handleImageChanged} />
             {user.name}
           </div>
-          <div class="navbar-item">
-            <button class="button is-danger is-light is-small" onClick={logout} > Logout</button>
+          <div className="navbar-item">
+            <button className="button is-danger is-light is-small" onClick={logout} > Logout</button>
           </div>
         </div >
       )
@@ -52,7 +53,7 @@ function App() {
   
   return (
     <div className="container is-fluid">
-      <header class="navbar">
+      <header className="navbar">
         {loading ? (
           <p>
             LOADING.....
